@@ -13,7 +13,7 @@ class Product(models.Model):
 
 
 class Order(models.Model):
-    Order_Id=models.AutoField(primary_key=True)    
+    Order_Id=models.IntegerField(primary_key=True, auto_created=True)   
     product_ID=models.ForeignKey(Product,on_delete=models.CASCADE)
 
 

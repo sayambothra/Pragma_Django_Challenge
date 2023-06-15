@@ -20,10 +20,10 @@ class OrderApiView(APIView):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
-            product_ID = serializer.validated_data.get('productid')
-            Order_ID = serializer.validated_data.get('orderid')
-            print(product_ID)
-            message = f'hello your order for {product_ID} as been placed'
+            product_id = serializer.validated_data.get('productid')
+            #Order_ID = serializer.validated_data.get('orderid')
+            print(product_id)
+            message = f'hello your order for {product_id} as been placed'            
             return Response({'message':message})
         else:
             return Response(

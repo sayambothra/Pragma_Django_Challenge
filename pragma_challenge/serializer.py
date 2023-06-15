@@ -20,5 +20,5 @@ PC =(("Yonex Racquet","1RB"),("Lining Racquet","2RB"),("Ashaway Racquet","3RB"),
 #      ("1SST","Wilson String"),("2SST","Babolat String"),("3SST","Head String"),("4SB","Young String","4SST"))
 class OrdersSerializer(serializers.Serializer):
     #productChoices = Product.objects.values_list('product_ID')
-    orderid=serializers.CharField(max_length=10)
+    #orderid=serializers.CharField(max_length=10)
     productid=serializers.ChoiceField(choices=PC)
