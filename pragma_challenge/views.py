@@ -14,6 +14,8 @@ def index(request):
         'message':message,
     }
     return render(request,'index.html',context)
+
+#API to place an order using post method
 class OrderApiView(APIView):
     serializer_class=serializer.OrdersSerializer
     def post(self,request):
@@ -32,6 +34,7 @@ class OrderApiView(APIView):
                 )
 
 
+#API to get productid Recommendation based on thr productid sent to getAPI
 
 class RecommendProducts(APIView):    
     def get(self,request,product_id):
