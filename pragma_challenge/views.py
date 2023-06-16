@@ -17,13 +17,14 @@ def index(request):
 
 #API to place an order using post method
 class OrderApiView(APIView):
-    serializer_class=serializer.OrdersSerializer
+    serializer_class=serializer.OrdersSerializer   
+    '''This method helps you place orders By Selecting the product id from the dropdown.
+      and gives you a confirmation message of your order'''
+    
     def post(self,request):
         serializer = self.serializer_class(data=request.data)
-
         if serializer.is_valid():
-            product_id = serializer.validated_data.get('productid')
-            #Order_ID = serializer.validated_data.get('orderid')
+            product_id = serializer.validated_data.get('productid')            
             print(product_id)
             message = f'hello your order for {product_id} as been placed'            
             return Response({'message':message})
@@ -34,25 +35,28 @@ class OrderApiView(APIView):
                 )
 
 
-#API to get productid Recommendation based on thr productid sent to getAPI
+#API to get productid Recommendation based on the productid sent to getAPI
 
-class RecommendProducts(APIView):    
+class RecommendProducts(APIView):
+    '''This is a getAPI call which helps
+      to get product Recommendation based on product_id we Pass'''    
     def get(self,request,product_id):
-        try:
-            
-            #product=request.GET.get('1RB')
+        product_ids = Product.objects.values_list('product_ID',flat=True)
+        print(list(product_ids))
+        if product_id in product_ids:     
             print(product_id)
             if 'B' in product_id:
                 items=Product.objects.filter(product_category='badminton')
                 print('Badminton')
-                print(items)
+                
             elif 'T' in product_id:
                 items=Product.objects.filter(product_category='Tennis')
             item_names=[item.product_ID for item in items]
 
             return Response(item_names)
-        except Product.DoesNotExist:
-            return Response("Only this list of product_ids exist",status=404)
+        else:
+            message ="product_ids =['1RB','2RB','3RB','4RB','1SB','2SB','3SB','4SB','1SSB','2SSB','3SSB','4SSB','1RT','2RT','3RT','4RT','1ST','2ST','3ST','4ST','1SST','2SST','3SST','4SST'].Only this list of product_ids exist"
+            return Response(message,status=404)
 
 
         

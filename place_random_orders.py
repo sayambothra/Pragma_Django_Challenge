@@ -9,13 +9,8 @@ from pragma_challenge.models import Order,Product
 
 def random_order(N=10):
     productType =['RB','SB','SSB','RT','ST','SST']
-    for i in range(1,N):       
-        # x=random.randrange(1,5)
-        # y=random.randrange(0,6)
-        # p_ID=str(x)+productType[y]
-        # print(type(p_ID))        
-        # print(p_ID)
-       # order_details = Order.objects.get_or_create(product_ID=p_ID)
+    for i in range(1,N):    
+       
         product_ids = Product.objects.values_list('product_ID',flat=True)
         random_index = random.randint(0, len(product_ids) - 1)
         random_product_id = product_ids[random_index]

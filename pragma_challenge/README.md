@@ -31,8 +31,18 @@ Step 7:
     In the Product Recommendation, The logiv which I have used is if the user enters any of badminton product categories we shall display them only badminton related products and if they enter a Tennis product_id it will recommend all tennis product_ids
      Repeat Step 4
         Go the localhosturl and after the url link type/Recommend/{product_id}
-            product_id = ['1RB','2RB','3RB','4RB','1SB','2SB','3SB','4SB','1SSB','2SSB','3SSB','4SSB','1RT','2RT','3RT','4RT','1ST','2ST','3ST','4ST','1SST','2SST','3SST','4SST]
+            product_id = ['1RB','2RB','3RB','4RB','1SB','2SB','3SB','4SB','1SSB','2SSB','3SSB','4SSB','1RT','2RT','3RT','4RT','1ST','2ST','3ST','4ST','1SST','2SST','3SST','4SST']
         It will return the list of product_ids similar to the one you have entered.
+
+
+''' The Current System Recommends product based on similarities. We Can Enhance this system be understanding previous sales and products bougth together and suggest product based on it. '''
+
+How to Enhance the System:
+    - We can make a co-relation between what products were bought together       previously from the Orders.
+     - To Co-relate them we Can for Example:
+         If the product we search for is say '1RB'
+         We can go to Orders Table Search for all Orders which have 1RB in their Orders and suggest users all the prodcus which were bought in those orders with 1RB.
+         
 
 
 
