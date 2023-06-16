@@ -9,7 +9,7 @@ from pragma_challenge.models import Order,Product
 
 def random_order(N=10):
     productType =['RB','SB','SSB','RT','ST','SST']
-    for i in range(1,N):    
+    for i in range(1,N):   
        
         product_ids = Product.objects.values_list('product_ID',flat=True)
         random_index = random.randint(0, len(product_ids) - 1)
