@@ -34,6 +34,12 @@ Step 7:
             product_id = ['1RB','2RB','3RB','4RB','1SB','2SB','3SB','4SB','1SSB','2SSB','3SSB','4SSB','1RT','2RT','3RT','4RT','1ST','2ST','3ST','4ST','1SST','2SST','3SST','4SST']
         It will return the list of product_ids similar to the one you have entered.
 
+''' DockerFile is also Present'''
+    Steps to Execute it:
+    -Go to root path of folder on cmd
+    -docker build -t {app_name} .
+    -docker run -p 8010:8010 {app_name}
+
 
 ''' The Current System Recommends product based on similarities. We Can Enhance this system be understanding previous sales and products bougth together and suggest product based on it. '''
 
